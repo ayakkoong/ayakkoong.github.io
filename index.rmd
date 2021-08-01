@@ -107,8 +107,6 @@ Column {data-width=500}
 -----------------------------------------------------------------------
 ### **네이버 뉴스 "로펌(법무법인)"**
 
-
-
 ```{r include=FALSE}
 list <- c("로펌", "법무법인")
 Stack <- NULL
@@ -139,7 +137,7 @@ df[, 1] <- as.Date(df[, 1], format = "%d %b %Y")
 Sys.setlocale("LC_ALL", "korean")
 
 df <- df[,-2]
-
+names(df) <- c("날짜", "기사 제목")
 ```
 
 ```{r fig.showtext=T}
@@ -153,8 +151,7 @@ df %>%
 
 Column {data-width=500}
 -----------------------------------------------------------------------
-### Chart 2
-대한변호사협회 등록 기준
+### 로펌별 변호사 수
 ```{r, include=FALSE}
 lawfirm <- c("김앤장 법률사무소", "법무법인(유한) 태평양", "법무법인(유한) 광장", "법무법인(유한) 세종", "법무법인(유한) 율촌")
 
@@ -205,7 +202,7 @@ graph
 
 ```
 
-### Chart 3
+### 로펌별 영입기사
 
 ```{r, include=FALSE}
 url.leeko <- "https://www.leeko.com/news/boardList.do?lang=KR&searchMenupart=12" #법무법인 광장  url
@@ -330,7 +327,7 @@ df.shinkim <- tbl.shinkim %>%
 
 df.lawfirm <- rbind(df.leeko, df.yulchon, df.shinkim)
 df.lawfirm <- arrange(df.lawfirm, desc(date))
-names(df.lawfirm) <- c("날짜", "로펌", "영입 기사")
+names(df.lawfirm) <- c("날짜", "로펌", "기사 제목")
 
 ```
 
@@ -338,9 +335,9 @@ names(df.lawfirm) <- c("날짜", "로펌", "영입 기사")
 df.lawfirm %>% 
   kable(format="html", escape=FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, width = "1em") %>%
-  column_spec(2, width = "1.5em") %>% 
-  column_spec(3, width = "30em") 
+  column_spec(1, width = "2em") %>%
+  column_spec(2, width = "2em") %>% 
+  column_spec(3, width = "20em") 
 ```
 
 
@@ -350,10 +347,7 @@ df.lawfirm %>%
 2. HR
 =======================================================================
 
-### Chart 1
-
-**고용노동부 공지사항**
-
+### **고용노동부 공지사항**
 ```{r, include=FALSE}
 url.moel <- "http://www.moel.go.kr/news/notice/noticeList.do"
 Sys.sleep(2)
@@ -397,9 +391,10 @@ tbl.moel
 
 df.moel <- tbl.moel %>%
   mutate(title.link = cell_spec(title, "html", link = link)) %>%
-  select(title.link, date)
+  select(date, title.link)
 df.moel
-names(df.moel) <- c("title", "date")
+names(df.moel) <- c("날짜", "제목")
+
 ```
 
 ```{r fig.showtext=T}
@@ -407,14 +402,12 @@ names(df.moel) <- c("title", "date")
 df.moel %>%
   kable(format="html", escape=FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, width = "10em") %>%
-  column_spec(2, width = "5em") 
+  column_spec(1, width = "5em") %>%
+  column_spec(2, width = "20em") 
 ```
 
 
-### Chart 2
-
-**고용노동부 보도자료**
+### **고용노동부 보도자료**
 ```{r, include=FALSE}
 url.moel2 <- "http://www.moel.go.kr/news/enews/report/enewsList.do"
 
@@ -463,9 +456,9 @@ tbl.moel2
 
 df.moel2 <- tbl.moel2 %>%
   mutate(title.link = cell_spec(title, "html", link = link)) %>%
-  select(title.link, date)
+  select(date, title.link)
 
-names(df.moel2) <- c("title", "date")
+names(df.moel2) <- c("날짜", "제목")
 
 
 
@@ -476,8 +469,8 @@ names(df.moel2) <- c("title", "date")
 df.moel2 %>%
   kable(format="html", escape=FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, width = "10em") %>%
-  column_spec(2, width = "5em") 
+  column_spec(1, width = "5em") %>%
+  column_spec(2, width = "20em") 
 ```
 
 
@@ -489,5 +482,5 @@ system("taskkill /im java.exe /F")
 ```
 
 
-3. 연락처{data-navmenu="More"}
+연락처{data-navmenu="More"}
 =======================================
