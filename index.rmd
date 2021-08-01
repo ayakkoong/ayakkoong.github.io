@@ -100,7 +100,7 @@ df <- xmlToDataFrame(getNodeSet(xmlFile, "//item"), stringsAsFactors = FALSE)
 
 
 
-1. Lawfirm
+Lawfirm
 =======================================================================
 
 Column {data-width=500}
@@ -344,7 +344,7 @@ df.lawfirm %>%
 
 
 
-2. HR
+고용노동부
 =======================================================================
 
 ### **고용노동부 공지사항**
@@ -482,5 +482,24 @@ system("taskkill /im java.exe /F")
 ```
 
 
-연락처{data-navmenu="More"}
+나는 누구인가{data-navmenu="More"}
 =======================================
+### 김기웅, 그는 누구인가
+    
+```{r}
+x <- readJPEG("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io/profile.jpg") 
+x
+```
+   
+Column {data-width=400}
+-------------------------------------
+   
+### Chart 2
+
+```{r}
+```   
+ 
+### Chart 3
+    
+```{r}
+```
