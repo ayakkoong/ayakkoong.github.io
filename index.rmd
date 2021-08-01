@@ -27,22 +27,27 @@ output:
 
 body{
 font-family: 'S-CoreDream-3Light';
-font-size: 11pt;
+font-size: 10pt;
 }
 
 header{
-font-family: 'ONE-Mobile-POP';
+font-family: 'IM_Hyemin-Bold';
 }
 
 h1,h2,h3,h4,h5,h6{
-font-family: 'ONE-Mobile-POP';
+font-family: 'IM_Hyemin-Bold';
 }
 .navbar {
-font-family: 'ONE-Mobile-POP';
+font-family: 'IM_Hyemin-Bold';
 font-size: 15pt;
 }
 .navbar-brand {
-font-family: 'ONE-Mobile-POP';!important;
+font-family: 'IM_Hyemin-Bold';!important;
+}
+
+chart-title {
+font-family: 'IM_Hyemin-Bold';
+font-size: 15pt;
 }
 
 </style>
@@ -62,7 +67,7 @@ ipak(pkg)
 
 
 
-rD <- rsDriver(port=4784L, chromever="91.0.4472.19")
+rD <- rsDriver(port=4786L, chromever="91.0.4472.19")
 remDr <- rD$client
 
 
@@ -105,7 +110,7 @@ Lawfirm
 
 Column {data-width=500}
 -----------------------------------------------------------------------
-### **네이버 뉴스 "로펌(법무법인)"**
+### **로펌 관련 네이버 뉴스**
 
 ```{r include=FALSE}
 list <- c("로펌", "법무법인")
@@ -142,16 +147,17 @@ names(df) <- c("날짜", "기사 제목")
 
 ```{r fig.showtext=T}
 df %>% 
-  kable(escape=FALSE) %>%
+  kable(escape=FALSE, align = c('c', 'l')) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
   column_spec(1, width = "10em") %>%
-  column_spec(2, width = "30em")
+  column_spec(2, width = "30em") 
+
 ```
 
 
 Column {data-width=500}
 -----------------------------------------------------------------------
-### 로펌별 변호사 수
+### **로펌별 변호사 수**
 ```{r, include=FALSE}
 lawfirm <- c("김앤장 법률사무소", "법무법인(유한) 태평양", "법무법인(유한) 광장", "법무법인(유한) 세종", "법무법인(유한) 율촌")
 
@@ -202,7 +208,7 @@ graph
 
 ```
 
-### 로펌별 영입기사
+### **로펌별 영입기사**
 
 ```{r, include=FALSE}
 url.leeko <- "https://www.leeko.com/news/boardList.do?lang=KR&searchMenupart=12" #법무법인 광장  url
@@ -333,7 +339,7 @@ names(df.lawfirm) <- c("날짜", "로펌", "기사 제목")
 
 ```{r fig.showtext=T}
 df.lawfirm %>% 
-  kable(format="html", escape=FALSE) %>%
+  kable(format="html", escape=FALSE, align = c('c', 'c', 'l')) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
   column_spec(1, width = "2em") %>%
   column_spec(2, width = "2em") %>% 
@@ -344,7 +350,7 @@ df.lawfirm %>%
 
 
 
-고용노동부
+MOEL
 =======================================================================
 
 ### **고용노동부 공지사항**
@@ -400,10 +406,10 @@ names(df.moel) <- c("날짜", "제목")
 ```{r fig.showtext=T}
 
 df.moel %>%
-  kable(format="html", escape=FALSE) %>%
+  kable(format="html", escape=FALSE, align = c('c', 'l')) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, width = "5em") %>%
-  column_spec(2, width = "20em") 
+  column_spec(1, width_min = "5em") %>%
+  column_spec(2, width_min = "20em") 
 ```
 
 
@@ -467,10 +473,11 @@ names(df.moel2) <- c("날짜", "제목")
 ```{r fig.showtext=T}
 
 df.moel2 %>%
-  kable(format="html", escape=FALSE) %>%
+  kable(format="html", escape=FALSE, align = c('c', 'l')) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, width = "5em") %>%
-  column_spec(2, width = "20em") 
+  column_spec(1, width_min = "5em") %>%
+  column_spec(2, width_min = "20em") 
+  
 ```
 
 
@@ -482,25 +489,32 @@ system("taskkill /im java.exe /F")
 ```
 
 
-나는 누구인가{data-navmenu="More"}
+나는 누구인가{data-width=400, data-navmenu="More"}
 =======================================
-### 김기웅, 그는 누구인가
+### **사진 찍는 김기웅**
     
-```{r}
+```{r, fig.align = "center", fig.width=5}
 
 include_graphics("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io/profile.png")
 
 ```
    
-Column {data-width=400}
+자기소개 {data-width=600}
 -------------------------------------
    
-### Chart 2
+### **학력 및 경력**
 
-```{r}
-```   
+**학력**  
+**2021년 현재** 성균관대학교 퀀트응용경제확과 재학 중  
+**2018년 02월** 전남대학교 경제학과(철학 복수전공) 졸업  
+**2011년 02월** 순천고등학교 문과 졸업  
+
+
+**경력**  
+**2021년 현재** 법무법인(유한) 태평양 인재확보팀 선임  
+**2021년 02월** 법무법인(유한) 태평양 인사운영팀 전임  
+**2017년 11월** 법무법인(유한) 태평양 인사팀 사원 입사  
  
-### Chart 3
-    
-```{r}
-```
+### **인사말**
+안녕하세요!
+
