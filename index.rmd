@@ -487,8 +487,9 @@ system("taskkill /im java.exe /F")
 ### 김기웅, 그는 누구인가
     
 ```{r}
-x <- readJPEG("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io/profile.jpg") 
-x
+
+include_graphics("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io/profile.png")
+
 ```
    
 Column {data-width=400}
