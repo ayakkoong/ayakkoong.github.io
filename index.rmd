@@ -67,7 +67,7 @@ ipak(pkg)
 
 
 
-rD <- rsDriver(port=4787L, chromever="91.0.4472.19")
+rD <- rsDriver(port=4790L, chromever="91.0.4472.19")
 remDr <- rD$client
 
 
@@ -373,7 +373,8 @@ title <- trimws(title, which = "both")
 title
 date <- res %>% 
   html_nodes("td") %>% 
-  html_text()
+  html_text() %>% 
+  str_trim()
 
 Sys.setlocale("LC_ALL", "C")
 date <- res %>%
@@ -401,15 +402,19 @@ df.moel <- tbl.moel %>%
 df.moel
 names(df.moel) <- c("날짜", "제목")
 
+str_trim(df.moel, side = "both")
+
 ```
+
 
 ```{r fig.showtext=T}
 
 df.moel %>%
-  kable(format="html", escape=FALSE, align = c('c', 'l')) %>%
+  kable(format="html", escape=FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, width_min = "5em") %>%
-  column_spec(2, width_min = "20em") 
+  column_spec(1, width = "3em") %>%
+  column_spec(2, width = "30em") 
+
 ```
 
 
@@ -434,7 +439,8 @@ title
 
 date <- res %>% 
   html_nodes("td") %>% 
-  html_text()
+  html_text() %>% 
+  str_trim()
 
 Sys.setlocale("LC_ALL", "C")
 date <- res %>%
@@ -467,16 +473,17 @@ df.moel2 <- tbl.moel2 %>%
 names(df.moel2) <- c("날짜", "제목")
 
 
-
+str_trim(df.moel, side = "both")
 ```
+
 
 ```{r fig.showtext=T}
 
 df.moel2 %>%
-  kable(format="html", escape=FALSE, align = c('c', 'l')) %>%
+  kable(format="html", escape=FALSE) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed")) %>%
-  column_spec(1, width_min = "5em") %>%
-  column_spec(2, width_min = "20em") 
+  column_spec(1, width = "3em") %>%
+  column_spec(2, width = "30em") 
   
 ```
 
@@ -505,7 +512,7 @@ include_graphics("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io
 ### **학력 및 경력**
 
 **학력**  
-**2021년 현재** 성균관대학교 퀀트응용경제학과 재학 중  
+**2021년 현재** 성균관대학교 일반대학원 퀀트응용경제학과 재학 중  
 **2018년 02월** 전남대학교 경제학과(철학 복수전공) 졸업  
 **2011년 02월** 순천고등학교 문과 졸업  
 
