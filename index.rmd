@@ -67,7 +67,7 @@ ipak(pkg)
 
 
 
-rD <- rsDriver(port=4786L, chromever="91.0.4472.19")
+rD <- rsDriver(port=4787L, chromever="91.0.4472.19")
 remDr <- rD$client
 
 
@@ -113,7 +113,7 @@ Column {data-width=500}
 ### **로펌 관련 네이버 뉴스**
 
 ```{r include=FALSE}
-list <- c("로펌", "법무법인")
+list <- c("김앤장", "법무법인 태평양", "법무법인 세종", "법무법인 광장", "법무법인 율촌")
 Stack <- NULL
 for (keyword in list) {
   
@@ -505,7 +505,7 @@ include_graphics("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io
 ### **학력 및 경력**
 
 **학력**  
-**2021년 현재** 성균관대학교 퀀트응용경제확과 재학 중  
+**2021년 현재** 성균관대학교 퀀트응용경제학과 재학 중  
 **2018년 02월** 전남대학교 경제학과(철학 복수전공) 졸업  
 **2011년 02월** 순천고등학교 문과 졸업  
 
