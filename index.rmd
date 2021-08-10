@@ -525,5 +525,6 @@ include_graphics("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io
 remDr$close()
 rD$server$stop()
 system("taskkill /im java.exe /F")
+
 ```
 
