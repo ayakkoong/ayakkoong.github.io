@@ -473,7 +473,7 @@ df.moel2 <- tbl.moel2 %>%
 names(df.moel2) <- c("날짜", "제목")
 
 
-str_trim(df.moel, side = "both")
+str_trim(df.moel2, side = "both")
 ```
 
 
@@ -488,43 +488,4 @@ df.moel2 %>%
 ```
 
 
-
-
-나는 누구인가{data-width=400, data-navmenu="More"}
-=======================================
-### **사진 찍는 김기웅**
-    
-```{r, fig.align = "center", fig.width=5}
-
-include_graphics("C:/Users/kiwoong/OneDrive/2. QAE/projcet.R/ayakkoong.github.io/profile.png")
-
-```
-   
-자기소개 {data-width=600}
--------------------------------------
-   
-### **학력 및 경력**
-
-**학력**  
-**2021년 현재** 성균관대학교 일반대학원 퀀트응용경제학과 재학 중  
-**2018년 02월** 전남대학교 경제학과(철학 복수전공) 졸업  
-**2011년 02월** 순천고등학교 문과 졸업  
-
-
-**경력**  
-**2021년 현재** 법무법인(유한) 태평양 인재확보팀 선임  
-**2021년 02월** 법무법인(유한) 태평양 인사운영팀 전임  
-**2017년 11월** 법무법인(유한) 태평양 인사팀 사원 입사  
- 
-### **인사말**
-안녕하세요!
-
-
-
-```{r, include=FALSE}
-remDr$close()
-rD$server$stop()
-system("taskkill /im java.exe /F")
-
-```
 
