@@ -58,16 +58,16 @@ rm(list=ls())
 ipak <- function(pkg){
   new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
   if (length(new.pkg))
-    install.packages(new.pkg, dependencies = TRUE)
+    install.packages(new.pkg, dependencies = TRUE, repos = "http://cran.us.r-project.org")
   sapply(pkg, require, character.only = TRUE)
 }
 
-pkg <- c("readxl", "data.table", "Ecdat", "lmtest", "AER", "sandwich", "car", "urca", "tseries", "orcutt", "rvest", "httr", "tidyverse", "jsonlite", "writexl", "XML", "xml2", "RSelenium", "glue", "regexplain", "knitr", "kableExtra", "lubridate", "KeyboardSimulator", "flexdashboard", "wooldridge", "DT", "shiny", "rmarkdown", "bslib", "thematic", "showtext", "prettydoc")
+pkg <- c("readxl", "data.table", "Ecdat", "lmtest", "AER", "sandwich", "car", "urca", "tseries", "orcutt", "rvest", "httr", "tidyverse", "jsonlite", "writexl", "XML", "xml2", "RSelenium", "glue", "knitr", "kableExtra", "lubridate", "KeyboardSimulator", "flexdashboard", "wooldridge", "DT", "shiny", "rmarkdown", "bslib", "thematic", "showtext", "prettydoc")
 ipak(pkg)
 
 
 
-rD <- rsDriver(port=4790L, chromever="91.0.4472.19")
+rD <- rsDriver(port=4751L, chromever="92.0.4515.107")
 remDr <- rD$client
 
 
