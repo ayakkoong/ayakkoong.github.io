@@ -67,7 +67,7 @@ ipak(pkg)
 
 
 
-rD <- rsDriver(port=4751L, chromever="92.0.4515.107")
+rD <- rsDriver(port=4751L, chromever="96.0.4664.45")
 remDr <- rD$client
 
 
